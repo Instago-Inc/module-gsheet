@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>gsheet Documentation</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 48px 24px;
+        font-family: Arial, sans-serif;
+        background: #0f172a;
+        color: #e2e8f0;
+      }
+      main {
+        max-width: 760px;
+        margin: 0 auto;
+      }
+      h1 {
+        margin: 0 0 12px;
+        font-size: 28px;
+      }
+      .intro {
+        font-size: 16px;
+        color: #e2e8f0;
+      }
+      p {
+        margin: 0 0 16px;
+        color: #cbd5f5;
+      }
+      ul {
+        margin: 12px 0 0;
+        padding-left: 18px;
+      }
+      a {
+        color: #93c5fd;
+      }
+      .section {
+        margin-top: 28px;
+      }
+      .muted {
+        color: #94a3b8;
+        font-size: 14px;
+        margin: 6px 0 0;
+      }
+      .code {
+        background: #0b1220;
+        border: 1px solid #1e293b;
+        border-radius: 10px;
+        padding: 16px;
+        white-space: pre-wrap;
+        word-break: break-word;
+        font-size: 13px;
+        line-height: 1.5;
+        color: #e2e8f0;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>module/gsheet - V8 module</h1>
+      <p class="intro">This module provides a simple way to read, write, and export Google Sheets from V8 workflows. It focuses on practical, workflow-friendly helpers so you can move data without managing low-level API details.</p>
+      <p class="muted">Learn more at <a href="https://instago.ai" target="_blank" rel="noopener">https://instago.ai</a>.</p>
+      <div class="section">
+        <h2>Technical reference</h2>
+        <h1>module/gsheet - V8 module</h1>
+<p>This module provides a simple way to read, write, and export Google Sheets from V8 workflows. It focuses on practical, workflow-friendly helpers so you can move data without managing low-level API details.</p>
+<p>Use it to fetch ranges, append rows, or generate exports in a few lines. Learn more about the platform at https://instago.ai.</p>
+<h2>Technical reference</h2>
+<h3>Exports</h3>
+<ul>
+<li><code>configure(opts)</code></li>
+<li><code>parseLink(url)</code></li>
+<li><code>metadata({ link, spreadsheetId, scope })</code></li>
+<li><code>getValues({ link, spreadsheetId, sheetName, rangeA1, scope })</code></li>
+<li><code>setValues({ link, spreadsheetId, sheetName, rangeA1, values, valueInputOption, scope })</code></li>
+<li><code>appendValues({ link, spreadsheetId, sheetName, rangeA1, values, valueInputOption, scope })</code></li>
+<li><code>clearRange({ link, spreadsheetId, sheetName, rangeA1, scope })</code></li>
+<li><code>createSpreadsheet({ title, sheets })</code></li>
+<li><code>appendRow({ spreadsheetId, sheet, values, valueInputOption })</code></li>
+<li><code>get({ link, spreadsheetId, sheetName, rangeA1, scope })</code></li>
+<li><code>update({ spreadsheetId, rangeA1, sheetName, values, valuesJson, valueInputOption, scope })</code></li>
+<li><code>append({ spreadsheetId, rangeA1, sheetName, values, valuesJson, valueInputOption, scope })</code></li>
+<li><code>clear({ link, spreadsheetId, sheetName, rangeA1, scope })</code></li>
+<li><code>create({ title, sheets })</code></li>
+<li><code>exportSpreadsheet({ spreadsheetId, format, outPath, scope })</code></li>
+</ul>
+<p>All methods return <code>{ ok, data, error }</code> with optional <code>status</code>.</p>
+<h3>Configuration</h3>
+<p><code>configure(opts)</code> forwards to <code>gauth@latest.configure</code>. Use it to set the OAuth client and refresh token. See the <code>gauth@latest</code> module for required option names. Scopes can be provided per call via <code>scope</code>. <code>env.json</code> defines no required or optional keys.</p>
+<h3>Usage</h3>
+<pre class="code"><code>
+const gsheet = require(&#x27;gsheet@latest&#x27;);
+
+gsheet.configure({
+  clientId: &#x27;&lt;client-id&gt;&#x27;,
+  clientSecret: &#x27;&lt;client-secret&gt;&#x27;,
+  refreshToken: &#x27;&lt;refresh-token&gt;&#x27;
+});
+</code></pre>
+<h3>Examples</h3>
+<pre class="code"><code>
+const gsheet = require(&#x27;gsheet@latest&#x27;);
+
+const { spreadsheetId } = gsheet.parseLink(&#x27;https://docs.google.com/spreadsheets/d/abc123/edit#gid=0&#x27;);
+
+await gsheet.metadata({ spreadsheetId });
+await gsheet.get({ spreadsheetId, rangeA1: &#x27;Sheet1!A1:B10&#x27; });
+await gsheet.update({ spreadsheetId, rangeA1: &#x27;A1&#x27;, values: &#x27;val1|val2,val3|val4&#x27; });
+await gsheet.update({ spreadsheetId, rangeA1: &#x27;A1&#x27;, valuesJson: &#x27;[[&quot;a&quot;,&quot;b&quot;],[&quot;c&quot;,&quot;d&quot;]]&#x27; });
+await gsheet.append({ spreadsheetId, rangeA1: &#x27;Sheet1!A:C&#x27;, values: &#x27;new|row|data&#x27; });
+await gsheet.clear({ spreadsheetId, rangeA1: &#x27;Sheet1!A1:B10&#x27; });
+await gsheet.create({ title: &#x27;My New Spreadsheet&#x27;, sheets: &#x27;Sheet1,Sheet2&#x27; });
+await gsheet.exportSpreadsheet({ spreadsheetId, format: &#x27;pdf&#x27;, outPath: &#x27;exports/sheet.pdf&#x27; });
+</code></pre>
+      </div>
+      
+    </main>
+  </body>
+</html>

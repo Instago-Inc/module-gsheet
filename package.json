@@ -1,0 +1,17 @@
+{
+  "name": "@instago/gsheet",
+  "version": "1.0.1",
+  "description": "Module gsheet",
+  "main": "index.js",
+  "type": "commonjs",
+  "license": "SEE LICENSE IN LICENSE",
+  "keywords": [
+    "instago",
+    "gsheet"
+  ],
+  "files": [
+    "index.js",
+    "ReadMe.MD",
+    "LICENSE"
+  ]
+}
