@@ -1,6 +1,6 @@
 # module/gsheet - V8 module
 
-This module provides a simple way to read, write, and export Google Sheets from V8 workflows. It focuses on practical, workflow-friendly helpers so you can move data without managing low-level API details.
+This module helps your workflows move data in and out of Google Sheets with minimal setup. It is designed for everyday automation tasks where you want reliable reads, updates, and exports.
 
 Use it to fetch ranges, append rows, or generate exports in a few lines. Learn more about the platform at https://instago.ai.
 

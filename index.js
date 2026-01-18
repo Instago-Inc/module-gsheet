@@ -1,14 +1,14 @@
-// Google Sheets helper (generic) using OAuth2 refresh token via gauth@1.0.0.
+// Google Sheets helper (generic) using OAuth2 refresh token via gauth@latest.
 // Consolidated API: parseLink, getValues, setValues, appendValues, clearRange
 // plus createSpreadsheet and appendRow for compatibility. Returns { ok, data, error }.
 
 (function () {
-  const httpx = require('http@1.0.0');
-  const gauth = require('gauth@1.0.0');
-  const auth = require('auth@1.0.0');
-  const qs = require('qs@1.0.0');
-  const log = require('log@1.0.0').create('gsheet');
-  const b64 = require('b64@1.0.0');
+  const httpx = require('http@latest');
+  const gauth = require('gauth@latest');
+  const auth = require('auth@latest');
+  const qs = require('qs@latest');
+  const log = require('log@latest').create('gsheet');
+  const b64 = require('b64@latest');
 
   const SHEETS_BASE = 'https://sheets.googleapis.com/v4';
   const DRIVE_BASE = 'https://www.googleapis.com/drive/v3';

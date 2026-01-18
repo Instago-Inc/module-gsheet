@@ -59,12 +59,12 @@
   <body>
     <main>
       <h1>module/gsheet - V8 module</h1>
-      <p class="intro">This module provides a simple way to read, write, and export Google Sheets from V8 workflows. It focuses on practical, workflow-friendly helpers so you can move data without managing low-level API details.</p>
+      <p class="intro">This module helps your workflows move data in and out of Google Sheets with minimal setup. It is designed for everyday automation tasks where you want reliable reads, updates, and exports.</p>
       <p class="muted">Learn more at <a href="https://instago.ai" target="_blank" rel="noopener">https://instago.ai</a>.</p>
       <div class="section">
         <h2>Technical reference</h2>
         <h1>module/gsheet - V8 module</h1>
-<p>This module provides a simple way to read, write, and export Google Sheets from V8 workflows. It focuses on practical, workflow-friendly helpers so you can move data without managing low-level API details.</p>
+<p>This module helps your workflows move data in and out of Google Sheets with minimal setup. It is designed for everyday automation tasks where you want reliable reads, updates, and exports.</p>
 <p>Use it to fetch ranges, append rows, or generate exports in a few lines. Learn more about the platform at https://instago.ai.</p>
 <h2>Technical reference</h2>
 <h3>Exports</h3>
@@ -114,7 +114,15 @@ await gsheet.create({ title: &#x27;My New Spreadsheet&#x27;, sheets: &#x27;Sheet
 await gsheet.exportSpreadsheet({ spreadsheetId, format: &#x27;pdf&#x27;, outPath: &#x27;exports/sheet.pdf&#x27; });
 </code></pre>
       </div>
-      
+      <div class="section">
+  <h2>Changelog</h2>
+  <h2>v1.0.1 - GSheet publication polish</h2>
+<p>Documented the latest @instago/gsheet release so searchable metadata stays current and the package looks fresh in discovery listings.</p>
+<h3>Fixed</h3>
+<ul>
+<li>Locked the published metadata to version 1.0.1 to match the package manifest and prepare the module for release.</li>
+</ul>
+</div>
     </main>
   </body>
 </html>
